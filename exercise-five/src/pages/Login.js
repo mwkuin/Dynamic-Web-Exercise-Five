@@ -1,11 +1,14 @@
 import React from "react";
+//Components
+import LoginForm from '../components/LoginForm';
 
-function Login() {
+function Login( {LoginFunction} ) {
   return (
-  <div>
-    <h1>Login</h1>
-  </div>
-);
+    <div>
+      <h1>Login</h1>
+      <LoginForm LoginFunction={LoginFunction} />
+    </div>
+  );
 }
 
 export default Login;
