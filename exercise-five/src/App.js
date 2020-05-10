@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
   const firebaseConfig = {
@@ -47,7 +47,8 @@ function App() {
 
   //Check to see if user is logged in
   //User loads page, check status -> set state accordingly
-  useEffect(() => {firebase.auth().onAuthStateChanged(function (user) {
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(function (user) {
     if(user) {
       //Logged in
       setUserInfo(user);
@@ -121,7 +122,7 @@ function CreateAccountFunction(e) {
       <Header LogoutFunction={LogoutFunction} isLoggedIn={loggedIn}/>
       <Router>
         <Route exact path="/">
-          {!loggedIn ? (<Redirect to="/login"/> ) : (<UserProfile userInformation={userInfo}/>)}
+          {!loggedIn ? (<Redirect to="/login"/> ) : (<UserProfile userInfo={userInfo}/>)}
         </Route>
 
         <Route exact path="/login">
